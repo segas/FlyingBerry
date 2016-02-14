@@ -13,7 +13,7 @@ angular.module('starter.controllers', [])
   $scope.loginData = {};
 
   // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
+  $ionicModal.fromTemplateUrl('views/login.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
@@ -34,7 +34,9 @@ angular.module('starter.controllers', [])
     LoginService.loginUser(userLogin)
     .then(function (data) {
         //log in successfull
-        window.alert("Login funktioniert")
+        //window.alert("Login funktioniert")
+        $scope.closeLogin();
+        //$starter.config.state('app.admin');
     }, function (data) {
         //log in failed
     });
@@ -62,21 +64,21 @@ angular.module('starter.controllers', [])
                 promise = deferred.promise;
 
             $http({
-                url: 'http://www.segas.ch/flyingberry/login.php',
+                url: 'http://88.84.20.245/flyingberry/login.php',
                 method: "POST",
                 data: loginData,
                 headers: { 'Content-Type': 'application/json' }
             })
                 .then(function (response) {
                     if (response.data.error.code === "000") {
-                        console.log("User login successful: " + JSON.stringify(response.data));
+                        //console.log("User login successful: " + JSON.stringify(response.data));
                         deferred.resolve(response.data);
                     } else {
-                        console.log("User login failed: " + JSON.stringify(response.data.error));
+                        //console.log("User login failed: " + JSON.stringify(response.data.error));
                         deferred.reject(response.data);
                     }
                 }, function (error) {
-                    console.log("Server Error on login: " + JSON.stringify(error));
+                    //console.log("Server Error on login: " + JSON.stringify(error));
                     deferred.reject(error);
                 });
 
