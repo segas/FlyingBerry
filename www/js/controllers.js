@@ -36,25 +36,11 @@ angular.module('starter.controllers', [])
         //log in successfull
         //window.alert("Login funktioniert")
         $scope.closeLogin();
-        //$starter.config.state('app.admin');
+        window.location = "#/app/admin";
     }, function (data) {
         //log in failed
     });
   };
-})
-
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
-
-.controller('PlaylistCtrl', function($scope, $stateParams) {
 })
 
 .service('LoginService', function ($q, $http) {
@@ -64,7 +50,7 @@ angular.module('starter.controllers', [])
                 promise = deferred.promise;
 
             $http({
-                url: 'http://88.84.20.245/flyingberry/login.php',
+                url: 'http://88.84.20.245/flyingberry/php/login.php',
                 method: "POST",
                 data: loginData,
                 headers: { 'Content-Type': 'application/json' }
