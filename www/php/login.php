@@ -53,18 +53,3 @@ if(!empty($username) && !empty($password)){
 	echo('{"userData":'.json_encode($userData).', "error": {"code":"005", "message": "Login error! Code: 005"}}');
 }
 ?>
-
-<?php /*
-
-$postdata = file_get_contents("php://input");
-$loginData = json_decode($postdata);
-$username = $loginData->email;
-$password = $loginData->password;
-
-$userData = array('userid' => '',
-				'firstname' => '',
-				'lastname' => '',
-				'username' => '',
-				'active' => '');
-**/
-?>
