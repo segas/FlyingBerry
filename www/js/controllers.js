@@ -1,6 +1,6 @@
 angular.module('modal.controllers', [])
 
-.controller('AppCtrl', function ($scope, $ionicModal, $timeout, LoginService, RenameFlight) {
+.controller('AppCtrl', function ($scope, $ionicModal, $timeout, LoginService, RenameFlight, Flight) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -11,7 +11,6 @@ angular.module('modal.controllers', [])
 
   // Form data for the login modal
   $scope.loginData = {};
-  $scope.flight = {};
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('views/login.html', {
@@ -21,10 +20,10 @@ angular.module('modal.controllers', [])
   });
 
   // Create the Flight renaming modal that we will use later
-  $ionicModal.fromTemplateUrl('views/rename_flight.html', {
+  $ionicModal.fromTemplateUrl('views/flight_administration.html', {
     scope: $scope
   }).then(function(modal) {
-    $scope.flightmodal = modal;
+    $scope.flight_admininstration_modal = modal;
   });
 
   // Triggered in the login modal to close it
@@ -38,13 +37,13 @@ angular.module('modal.controllers', [])
   };
 
   // Triggered in the Flight renaming modal to close it
-  $scope.closeFlightModal = function() {
-    $scope.flightmodal.hide();
+  $scope.closeFlightAdministrationModal = function() {
+    $scope.flight_admininstration_modal.hide();
   };
 
   // Open the Flight renaming modal
-  $scope.openFlightModal = function() {
-    $scope.flightmodal.show();
+  $scope.openFlightAdministrationModal = function() {
+    $scope.flight_admininstration_modal.show();
   };
 
   // Perform the login action when the user submits the login form
@@ -65,12 +64,19 @@ angular.module('modal.controllers', [])
     //.then(function (data) {
     RenameFlight.rename(flight)
         //log in successfull
-    $scope.closeFlightModal();
+    $scope.closeFlightAdministrationModal();
 
     //}, function (data) {
         //log in failed
     //});
   };
+
+  $scope.listFlights = function (){
+    
+    Flight.listAll();
+
+  }
+
 })
 
 .service('LoginService', function ($q, $http) {
@@ -134,6 +140,44 @@ angular.module('modal.controllers', [])
                 }, function (error) {
                     console.log("Server Error on renaming: " + JSON.stringify(error));
                     //deferred.reject(error);
+                });
+
+            promise.success = function (fn) {
+                promise.then(fn);
+                return promise;
+            };
+            promise.error = function (fn) {
+                promise.then(null, fn);
+                return promise;
+            };
+            return promise;
+        },
+    };
+})
+
+.service('Flight', function ($q, $http) {
+    return {
+        listAll: function (loginData) {
+            var deferred = $q.defer(),
+                promise = deferred.promise;
+
+            $http({
+                url: 'http://88.84.20.245/flyingberry/php/list_flights.php',
+                method: "POST",
+                data: null,
+                headers: { 'Content-Type': 'application/json' }
+            })
+                .then(function (response) {
+                    if (response.data.error.code === "000") {
+                        console.log("User login successful: " + JSON.stringify(response.data));
+                        deferred.resolve(response.data);
+                    } else {
+                        console.log("User login failed: " + JSON.stringify(response.data.error));
+                        deferred.reject(response.data);
+                    }
+                }, function (error) {
+                    console.log("Server Error on login: " + JSON.stringify(error));
+                    deferred.reject(error);
                 });
 
             promise.success = function (fn) {

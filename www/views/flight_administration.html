@@ -1,16 +1,17 @@
 <ion-modal-view>
   <ion-header-bar>
-    <h1 class="title">Flug verwalten</h1>
+    <h1 class="title">Flüge verwalten</h1>
     <div class="buttons">
-      <button class="button button-clear" ng-click="closeFlightModal()">Close</button>
+      <button class="button button-clear" ng-click="closeFlightAdministrationModal()">Close</button>
     </div>
   </ion-header-bar>
   <ion-content>
     <form ng-submit="renameFlight(flight)">
+      <div id="list_of_flights"></div>
       <div class="list">
         <label class="item item-input">
           <span class="input-label">Neuer Flugname:</span>
-          <input type="text" ng-model="flight.name">
+          <input type="text" ng-model="flight">
         </label>
         <label class="item">
           <button class="button button-block button-positive" type="submit">Aktuellen Flug umbenennen</button>
