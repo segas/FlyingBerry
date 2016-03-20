@@ -44,6 +44,7 @@ angular.module('modal.controllers', [])
   // Open the Flight renaming modal
   $scope.openFlightAdministrationModal = function() {
     $scope.flight_admininstration_modal.show();
+    $scope.listFlights();
   };
 
   // Perform the login action when the user submits the login form
@@ -63,20 +64,62 @@ angular.module('modal.controllers', [])
   $scope.renameFlight = function (flight) {
     //.then(function (data) {
     RenameFlight.rename(flight)
-        //log in successfull
+    //log in successfull
     $scope.closeFlightAdministrationModal();
-
-    //}, function (data) {
-        //log in failed
-    //});
   };
 
   $scope.listFlights = function (){
-    
-    Flight.listAll();
+    Flight.listAll()
+    .then(function (data) {
+      //data.flights.forEach(function(entry) {
+        //console.log(entry);
+      //});
+      $scope.createFlightsList(data.flights);
+    }, function (data) {
+      //failed
+    });
+  };
 
+  $scope.createFlightsList = function(data){
+    var body = document.getElementById('list_of_flights');
+    body.innerHTML = "";
+
+    var list = document.createElement('ul');
+    list.className = "list";
+
+    data.forEach(function(entry){
+      // Create the list item
+      var item = document.createElement('li');
+      item.className = "item";
+      //item.setAttribute("ng-click","selectItem('"+ entry +"')")
+      item.setAttribute("ng-click","selectItem('" + entry + "')")
+      // Set its contents
+      item.appendChild(document.createTextNode(entry));
+
+      // Add it to the list
+      list.appendChild(item);
+      body.appendChild(list);
+    })
+    $scope.compile(body);
   }
 
+  $scope.selectItem = function(flightname){
+    var newName = prompt("Wie soll der Flug neu heissen?", "");
+
+    if (newName != null) {
+      var flight = {oldName: flightname, newName: newName};
+      $scope.renameFlight(flight);
+    }
+  };
+
+  $scope.compile = function(element){
+    var el = angular.element(element);
+    $sc = el.scope();
+      $injector = el.injector();
+      $injector.invoke(function($compile){
+        $compile(el)($sc)
+      })
+  };
 })
 
 .service('LoginService', function ($q, $http) {
@@ -124,7 +167,7 @@ angular.module('modal.controllers', [])
                 promise = deferred.promise;
 
             $http({
-                url: 'http://88.84.20.245/flyingberry/php/reset_database.php',
+                url: 'http://88.84.20.245/flyingberry/php/renaming_flight.php',
                 method: "POST",
                 data: flight,
                 headers: { 'Content-Type': 'application/json' }
@@ -169,14 +212,11 @@ angular.module('modal.controllers', [])
             })
                 .then(function (response) {
                     if (response.data.error.code === "000") {
-                        console.log("User login successful: " + JSON.stringify(response.data));
+                        //console.log("Flights: " + JSON.stringify(response.data));
                         deferred.resolve(response.data);
-                    } else {
-                        console.log("User login failed: " + JSON.stringify(response.data.error));
-                        deferred.reject(response.data);
                     }
                 }, function (error) {
-                    console.log("Server Error on login: " + JSON.stringify(error));
+                    //console.log("Server Error on login: " + JSON.stringify(error));
                     deferred.reject(error);
                 });
 

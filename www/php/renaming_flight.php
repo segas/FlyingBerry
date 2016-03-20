@@ -2,9 +2,11 @@
 include('./db_connection.php'); //load config
 
 $postdata = file_get_contents("php://input");
-$flightname = (string)$postdata;
+$flightname = json_decode($postdata);
+$newFlightName = (string)$flightname->newName;
+$oldFlightName = (string)$flightname->oldName;
 
-$query = "UPDATE sensordata SET flight='".$flightname."' WHERE flight=''";
+$query = "UPDATE sensordata SET flight='".$newFlightName."' WHERE flight='".$oldFlightName."'";
 $result = mysql_query($query);
 
 if (!$result) {

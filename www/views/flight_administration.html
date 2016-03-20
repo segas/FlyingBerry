@@ -1,3 +1,14 @@
+<script>
+  $('tr').click(function() {
+      $('tr').removeClass('selected');
+      $(this).addClass('selected');
+
+      var td = $(this).children('td');
+      for (var i = 0; i < td.length; ++i) {
+          alert(i + ': ' + td[i].innerText);
+      }
+  });
+</script>
 <ion-modal-view>
   <ion-header-bar>
     <h1 class="title">Flüge verwalten</h1>
@@ -6,17 +17,6 @@
     </div>
   </ion-header-bar>
   <ion-content>
-    <form ng-submit="renameFlight(flight)">
-      <div id="list_of_flights"></div>
-      <div class="list">
-        <label class="item item-input">
-          <span class="input-label">Neuer Flugname:</span>
-          <input type="text" ng-model="flight">
-        </label>
-        <label class="item">
-          <button class="button button-block button-positive" type="submit">Aktuellen Flug umbenennen</button>
-        </label>
-      </div>
-    </form>
+    <div id="list_of_flights"></div>
   </ion-content>
 </ion-modal-view>
