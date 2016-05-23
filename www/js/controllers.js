@@ -277,7 +277,7 @@ angular.module('modal.controllers', [])
 
     // Function to download file
     $scope.download_androidapp = function () {
-        window.location = "../apk/flyingberry.apk"
+        window.location = "./apk/flyingberry.apk"
     };
 
     // On the Pageload
