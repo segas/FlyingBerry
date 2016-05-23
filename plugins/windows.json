@@ -1,0 +1,36 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "com.telerik.plugins.nativepagetransitions": {
+            "PACKAGE_NAME": "FlyingBerry"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "FlyingBerry"
+        },
+        "cordova-plugin-crosswalk-webview": {
+            "PACKAGE_NAME": "FlyingBerry"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "FlyingBerry"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "FlyingBerry"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "FlyingBerry"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "FlyingBerry"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "FlyingBerry"
+        }
+    },
+    "dependent_plugins": {}
+}

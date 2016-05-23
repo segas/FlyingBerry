@@ -169,7 +169,7 @@ angular.module('modal.controllers', [])
                     type: 'timeseries',
                     tick: {
                         culling: {
-                            max: 5 // the number of tick texts will be adjusted to less than this value
+                            max: 3 // the number of tick texts will be adjusted to less than this value
                         },
                         format: '%Y-%m-%d %H:%M:%S'
                     }
@@ -197,7 +197,7 @@ angular.module('modal.controllers', [])
                     type: 'timeseries',
                     tick: {
                         culling: {
-                            max: 5 // the number of tick texts will be adjusted to less than this value
+                            max: 3 // the number of tick texts will be adjusted to less than this value
                         },
                         format: '%Y-%m-%d %H:%M:%S'
                     }
@@ -225,7 +225,7 @@ angular.module('modal.controllers', [])
                     type: 'timeseries',
                     tick: {
                         culling: {
-                            max: 5 // the number of tick texts will be adjusted to less than this value
+                            max: 3 // the number of tick texts will be adjusted to less than this value
                         },
                         format: '%Y-%m-%d %H:%M:%S'
                     }
@@ -253,7 +253,7 @@ angular.module('modal.controllers', [])
                     type: 'timeseries',
                     tick: {
                         culling: {
-                            max: 5 // the number of tick texts will be adjusted to less than this value
+                            max: 3 // the number of tick texts will be adjusted to less than this value
                         },
                         format: '%Y-%m-%d %H:%M:%S'
                     }
@@ -280,7 +280,7 @@ angular.module('modal.controllers', [])
     // Create the Selectbox options
     var listFlight = $scope.listFlightsforMainPage();
     // Refresh the chart data every 5 seconds (in miliseconds)
-    //var refreshPage = $interval($scope.refreshChart, 5000);
+    var refreshPage = $interval($scope.refreshChart, 5000);
 })
 
 //The Service for the Login
