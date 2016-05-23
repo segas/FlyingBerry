@@ -7,7 +7,13 @@
         "files": {}
     },
     "installed_plugins": {
+        "com.telerik.plugins.nativepagetransitions": {
+            "PACKAGE_NAME": "com.ionicframework.test678266"
+        },
         "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.ionicframework.test678266"
+        },
+        "cordova-plugin-crosswalk-webview": {
             "PACKAGE_NAME": "com.ionicframework.test678266"
         },
         "cordova-plugin-device": {
@@ -23,12 +29,6 @@
             "PACKAGE_NAME": "com.ionicframework.test678266"
         },
         "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.ionicframework.test678266"
-        },
-        "cordova-plugin-crosswalk-webview": {
-            "PACKAGE_NAME": "com.ionicframework.test678266"
-        },
-        "com.telerik.plugins.nativepagetransitions": {
             "PACKAGE_NAME": "com.ionicframework.test678266"
         }
     },

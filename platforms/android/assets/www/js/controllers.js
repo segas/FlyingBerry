@@ -64,6 +64,8 @@ angular.module('modal.controllers', [])
     $scope.renameFlight = function (flight) {
         RenameFlight.rename(flight);
         $scope.closeFlightAdministrationModal();
+        document.getElementById("flight_list").options.length = 0;
+        $scope.listFlightsforMainPage();
     };
 
     //Get all Flights from the database for the Administration
