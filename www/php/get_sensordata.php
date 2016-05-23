@@ -1,9 +1,4 @@
 <?php
-
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST,GET,OPTIONS');
-header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
-
 include('./db_connection.php'); //load config
 
 $result = mysql_query("SELECT datetime, temperature, humidity, pressure, altitude FROM sensordata WHERE flight='".$_GET['flight']."' ORDER BY datetime ASC");
