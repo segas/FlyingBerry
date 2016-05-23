@@ -1,1 +1,0 @@
-C:\Users\sgas\Documents\Visual Studio 2015\Projects\FlyingBerry\platforms\windows\CordovaApp.Windows10.jsproj;x64
