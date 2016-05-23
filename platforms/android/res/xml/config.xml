@@ -64,9 +64,9 @@
     <preference name="xwalkCommandLine" value="--disable-pull-to-refresh-effect" />
     <preference name="xwalkMode" value="embedded" />
     <preference name="xwalkMultipleApk" value="true" />
-    <icon src="resources\android\icon\drawable-xhdpi-icon.png" />
     <preference name="windows-target-version" value="10.0" />
     <preference name="WindowsStoreDisplayName" value="FlyingBerry" />
+    <icon src="resources\android\icon\drawable-xhdpi-icon.png" />
     <vs:platformSpecificValues xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps">
         <vs:platformSpecificWidget platformName="windows" version="1.0.0.0" />
     </vs:platformSpecificValues>
