@@ -18,7 +18,7 @@
     "cordova-plugin-whitelist": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-whitelist"
+            "id": "cordova-plugin-whitelist@~1.2.1"
         },
         "is_top_level": true,
         "variables": {}
@@ -26,7 +26,7 @@
     "cordova-plugin-splashscreen": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-splashscreen"
+            "id": "cordova-plugin-splashscreen@~3.1.0"
         },
         "is_top_level": true,
         "variables": {}
@@ -43,6 +43,23 @@
         "source": {
             "type": "registry",
             "id": "ionic-plugin-keyboard"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-crosswalk-webview": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-crosswalk-webview"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "com.telerik.plugins.nativepagetransitions": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Telerik-Verified-Plugins/NativePageTransitions",
+            "subdir": "."
         },
         "is_top_level": true,
         "variables": {}

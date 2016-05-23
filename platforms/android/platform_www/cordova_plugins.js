@@ -33,6 +33,13 @@ module.exports = [
             "cordova.plugins.Keyboard"
         ],
         "runs": true
+    },
+    {
+        "file": "plugins/com.telerik.plugins.nativepagetransitions/www/NativePageTransitions.js",
+        "id": "com.telerik.plugins.nativepagetransitions.NativePageTransitions",
+        "clobbers": [
+            "window.plugins.nativepagetransitions"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -43,7 +50,9 @@ module.exports.metadata =
     "cordova-plugin-splashscreen": "3.0.0",
     "cordova-plugin-statusbar": "2.0.0",
     "cordova-plugin-whitelist": "1.2.0",
-    "ionic-plugin-keyboard": "1.0.8"
+    "ionic-plugin-keyboard": "1.0.8",
+    "cordova-plugin-crosswalk-webview": "1.7.0",
+    "com.telerik.plugins.nativepagetransitions": "0.6.5-dev"
 };
 // BOTTOM OF METADATA
 });

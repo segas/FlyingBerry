@@ -1,10 +1,40 @@
-﻿<ion-view view-title="Flying Berry">
+﻿<!-- Mainpage -->
+<ion-view view-title="Flying Berry">
     <ion-content>
-        <p>Hier werden die Diagramme sein</p>
-
-
-    </ion-content>
+        <!-- Select Box for the flights -->
+        <div class="list">
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Flug:
+                </div>
+                <select id="flight_list" ng-model="flight_to_show" ng-change="selectFlight(flight_to_show)" ng-init="selectFlight(flight_to_show)">
+                    <option value="">Select a flight</option>
+                </select>
+            </label>
+        </div>
+        <!-- Charts -->
+        <div class="row responsive-md">
+            <div class="col">
+                <h1>Temperatur</h1>
+                <div id="diagram_temperature" style="height: auto"></div>
+            </div>
+            <div class="col">
+                <h1>Luftdruck</h1>
+                <div id="diagram_pressure" style="height: auto;"></div>
+            </div>
+        </div>
+        <div class="row responsive-md">
+            <div class="col">
+                <h1>Feuchtigkeit</h1>
+                <div id="diagram_humidity" style="height: auto;"></div>
+            </div>
+            <div class="col">
+                <h1>Höhe</h1>
+                <div id="diagram_altitude" style="height: auto;"></div>
+            </div>
+        </div>
+</ion-content>
     <div class="bar bar-footer bar-light">
-      <div class="title">&copy; by Stefan Gassner</div>
+        <div class="title">&copy; by Stefan Gassner and Severin Dellsperger</div>
     </div>
 </ion-view>

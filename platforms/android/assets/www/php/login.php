@@ -1,5 +1,4 @@
 <?php
-
 include('./db_connection.php'); //load config
 
 $postdata = file_get_contents("php://input");
