@@ -155,7 +155,7 @@ angular.module('modal.controllers', [])
         c3.generate({
             bindto: '#diagram_temperature',
             data: {
-                url: 'http://www.segas.ch/flyingberry/php/get_sensordata.php?flight=' + $scope.currentflight,
+                url: 'http://88.84.20.245/flyingberry/php/get_sensordata.php?flight=' + $scope.currentflight,
                 type: 'line',
                 mimeType: 'json',
                 xFormat: '%Y-%m-%d %H:%M:%S',
@@ -183,7 +183,7 @@ angular.module('modal.controllers', [])
         c3.generate({
             bindto: '#diagram_humidity',
             data: {
-                url: 'http://www.segas.ch/flyingberry/php/get_sensordata.php?flight=' + $scope.currentflight,
+                url: 'http://88.84.20.245/flyingberry/php/get_sensordata.php?flight=' + $scope.currentflight,
                 type: 'line',
                 mimeType: 'json',
                 xFormat: '%Y-%m-%d %H:%M:%S',
@@ -211,7 +211,7 @@ angular.module('modal.controllers', [])
         c3.generate({
             bindto: '#diagram_pressure',
             data: {
-                url: 'http://www.segas.ch/flyingberry/php/get_sensordata.php?flight=' + $scope.currentflight,
+                url: 'http://88.84.20.245/flyingberry/php/get_sensordata.php?flight=' + $scope.currentflight,
                 type: 'line',
                 mimeType: 'json',
                 xFormat: '%Y-%m-%d %H:%M:%S',
@@ -235,11 +235,11 @@ angular.module('modal.controllers', [])
                 show: false
             }
         });
-        //Höhe über Meer
+        //Hï¿½he ï¿½ber Meer
         c3.generate({
             bindto: '#diagram_altitude',
             data: {
-                url: 'http://www.segas.ch/flyingberry/php/get_sensordata.php?flight=' + $scope.currentflight,
+                url: 'http://88.84.20.245/flyingberry/php/get_sensordata.php?flight=' + $scope.currentflight,
                 type: 'line',
                 mimeType: 'json',
                 xFormat: '%Y-%m-%d %H:%M:%S',
@@ -263,11 +263,11 @@ angular.module('modal.controllers', [])
                 show: false
             }
         });
-        //Höhe über Meer
+        //Hï¿½he ï¿½ber Meer
         c3.generate({
             bindto: '#diagram_altitude_pressure',
             data: {
-                url: 'http://www.segas.ch/flyingberry/php/get_sensordata.php?flight=' + $scope.currentflight,
+                url: 'http://88.84.20.245/flyingberry/php/get_sensordata.php?flight=' + $scope.currentflight,
                 type: 'line',
                 mimeType: 'json',
                 xFormat: '%Y-%m-%d %H:%M:%S',
@@ -312,7 +312,7 @@ angular.module('modal.controllers', [])
         if ($scope.refreshPageActive.checked === true) {
             $scope.refreshChart();
             console.log("Autorefresh: " + $scope.refreshPageActive.checked);
-        } 
+        }
     };
 
     // On the Pageload
@@ -331,7 +331,7 @@ angular.module('modal.controllers', [])
                 promise = deferred.promise;
 
             $http({
-                url: 'http://www.segas.ch/flyingberry/php/login.php',
+                url: 'http://88.84.20.245/flyingberry/php/login.php',
                 method: "POST",
                 data: loginData,
                 headers: { 'Content-Type': 'application/json' }
@@ -369,7 +369,7 @@ angular.module('modal.controllers', [])
                 promise = deferred.promise;
 
             $http({
-                url: 'http://www.segas.ch/flyingberry/php/renaming_flight.php',
+                url: 'http://88.84.20.245/flyingberry/php/renaming_flight.php',
                 method: "POST",
                 data: flight,
                 headers: { 'Content-Type': 'application/json' }
@@ -407,7 +407,7 @@ angular.module('modal.controllers', [])
                 promise = deferred.promise;
 
             $http({
-                url: 'http://www.segas.ch/flyingberry/php/list_flights.php',
+                url: 'http://88.84.20.245/flyingberry/php/list_flights.php',
                 method: "POST",
                 data: null,
                 headers: { 'Content-Type': 'application/json' }
