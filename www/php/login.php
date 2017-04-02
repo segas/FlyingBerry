@@ -1,5 +1,17 @@
 <?php
-include('./db_connection.php'); //load config
+//include('./db_connection.php'); //load config
+
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST,GET,OPTIONS');
+header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
+
+$mysql_hostname = "88.84.20.245";
+$mysql_user = "flyingberry";
+$mysql_password = "Cherry@2";
+$mysql_database = "flyingberry";
+
+$con = mysqli_connect($mysql_hostname, $mysql_user, $mysql_password, $mysql_database) or die("Login error! Code: 001"); // Connect to database server(localhost) with username and password.
+
 
 $postdata = file_get_contents("php://input");
 $loginData = json_decode($postdata);
@@ -15,27 +27,27 @@ $userData = array('correct' => '',
 
 $query = "SELECT userid, firstname, lastname, username, passwd FROM user WHERE username='".$username."' AND passwd='".$password."' LIMIT 1;";
 
-$results = mysql_query($query) or die("Login error! Code: 003");
-$match  = mysql_num_rows($results);
+$results = mysqli_query($con, $query) or die("Login error! Code: 003");
+$match  = mysqli_num_rows($con, $results);
 
 
 if(!empty($username) && !empty($password)){
 
 	//echo($username.'  '.$password);
 
-	$username = mysql_escape_string($username);
-	$password = mysql_escape_string($password);
+	$username = mysqli_real_escape_string($con, $username);
+	$password = mysqli_real_escape_string($con, $password);
 
-	$results = mysql_query("SELECT userid, firstname, lastname, username, active FROM user WHERE username='".$username."' AND passwd='".$password."' LIMIT 1") or die("Login error! Code: 003");
-	$match  = mysql_num_rows($results);
+	$results = mysqli_query("SELECT userid, firstname, lastname, username, active FROM user WHERE username='".$username."' AND passwd='".$password."' LIMIT 1") or die("Login error! Code: 003");
+	$match  = mysqli_num_rows($con, $results);
 
-	$res = mysql_fetch_assoc($results);
+	$res = mysqli_fetch_assoc($con, $results);
 
     echo $res[''];
 
 	if($match > 0 ){
 			// login success
-            $userData['correct'] = 'True';
+            		$userData['correct'] = 'True';
 			$userData['userid'] = $res['userid'];
 			$userData['firstname'] = $res['firstname'];
 			$userData['lastname'] = $res['lastname'];
