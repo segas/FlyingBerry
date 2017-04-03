@@ -18,6 +18,5 @@ $mysql_user = "flyingberry";
 $mysql_password = "Cherry@2";
 $mysql_database = "flyingberry";
 
-mysql_connect($mysql_hostname, $mysql_user, $mysql_password) or die("Login error! Code: 001"); // Connect to database server(localhost) with username and password.
-mysql_select_db($mysql_database) or die("Login error! Code: 004");
+mysqli_connect($mysql_hostname, $mysql_user, $mysql_password, $mysql_database) or die("Login error! Code: 001"); // Connect to database server(localhost) with username and password.
 ?>

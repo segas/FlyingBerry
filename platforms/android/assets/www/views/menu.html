@@ -18,6 +18,9 @@
             <ion-list>
                 <ion-item menu-close ng-click="login()">Administration</ion-item>
                 <ion-item menu-close ng-click="download_androidapp()">Download Android App</ion-item>
+            
+                <!-- Autorefresh ON or OFF -->
+                <ion-toggle ng-model="refreshPageActive.checked">Auto Refresh</ion-toggle>
             </ion-list>
         </ion-content>
     </ion-side-menu>

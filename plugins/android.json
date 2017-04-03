@@ -7,29 +7,23 @@
         "files": {}
     },
     "installed_plugins": {
-        "com.telerik.plugins.nativepagetransitions": {
-            "PACKAGE_NAME": "com.ionicframework.test678266"
-        },
         "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.ionicframework.test678266"
-        },
-        "cordova-plugin-crosswalk-webview": {
-            "PACKAGE_NAME": "com.ionicframework.test678266"
+            "PACKAGE_NAME": "com.ionicframework.flyingberry976453"
         },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.ionicframework.test678266"
+            "PACKAGE_NAME": "com.ionicframework.flyingberry976453"
         },
         "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.ionicframework.test678266"
+            "PACKAGE_NAME": "com.ionicframework.flyingberry976453"
         },
         "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.ionicframework.test678266"
+            "PACKAGE_NAME": "com.ionicframework.flyingberry976453"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.ionicframework.test678266"
+            "PACKAGE_NAME": "com.ionicframework.flyingberry976453"
         },
         "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.ionicframework.test678266"
+            "PACKAGE_NAME": "com.ionicframework.flyingberry976453"
         }
     },
     "dependent_plugins": {}
