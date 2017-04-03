@@ -5,7 +5,7 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST,GET,OPTIONS');
 header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
 
-$mysql_hostname = "88.84.20.245";
+$mysql_hostname = "192.168.1.17";
 $mysql_user = "flyingberry";
 $mysql_password = "Cherry@2";
 $mysql_database = "flyingberry";
@@ -18,6 +18,7 @@ $loginData = json_decode($postdata);
 $username = $loginData->username;
 $password = $loginData->password;
 
+
 $userData = array('correct' => '',
                 'userid' => '',
 				'firstname' => '',
@@ -25,25 +26,21 @@ $userData = array('correct' => '',
 				'username' => '',
 				'active' => '');
 
-$query = "SELECT userid, firstname, lastname, username, passwd FROM user WHERE username='".$username."' AND passwd='".$password."' LIMIT 1;";
-
-$results = mysqli_query($con, $query) or die("Login error! Code: 003");
-$match  = mysqli_num_rows($con, $results);
-
 
 if(!empty($username) && !empty($password)){
 
-	//echo($username.'  '.$password);
+	
 
 	$username = mysqli_real_escape_string($con, $username);
 	$password = mysqli_real_escape_string($con, $password);
 
-	$results = mysqli_query("SELECT userid, firstname, lastname, username, active FROM user WHERE username='".$username."' AND passwd='".$password."' LIMIT 1") or die("Login error! Code: 003");
-	$match  = mysqli_num_rows($con, $results);
 
-	$res = mysqli_fetch_assoc($con, $results);
+	$query = "SELECT userid, firstname, lastname, username, active FROM user WHERE username='".$username."' AND passwd='".$password."' LIMIT 1";
+	$results = mysqli_query($con, $query) or die("Login error! Code: 003");
+	$match  = mysqli_num_rows($results);
 
-    echo $res[''];
+	$res = mysqli_fetch_assoc($results);
+    	echo $res[''];
 
 	if($match > 0 ){
 			// login success
@@ -56,7 +53,7 @@ if(!empty($username) && !empty($password)){
 			echo ('{"userData":'.json_encode($userData).', "error": {"code": "000","message": "The email or password you entered is correct."}}');
 	}else{
 		// login failed
-        $userData['correct'] = 'False';
+        	$userData['correct'] = 'False';
 		echo ('{"userData":'.json_encode($userData).', "error": {"code": "002","message": "The email or password you entered is incorrect."}}');
 	}
 } else {
