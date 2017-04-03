@@ -5,7 +5,7 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST,GET,OPTIONS');
 header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
 
-$mysql_hostname = "88.84.20.245";
+$mysql_hostname = "192.168.1.17";
 $mysql_user = "flyingberry";
 $mysql_password = "Cherry@2";
 $mysql_database = "flyingberry";
